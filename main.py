@@ -6,10 +6,13 @@ class Operation:
 		self.numbers = numbers;
 
 def introduction():
-	pass
+	print("Python Calculator")
 
 def print_instructions():
-	pass
+	instructions = "Type your command in this format: "
+	instructions += " add 1,2 "
+	instructions += "Possible operations: add, subtract, multiply, divide"
+	print(instructions)
 
 def get_user_input():
 	pass
@@ -30,4 +33,5 @@ def main():
 	pass
 
 
-main()
+# main()
+print_instructions()

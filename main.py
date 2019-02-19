@@ -37,11 +37,41 @@ def parse_input(user_input):
 	operation = Operation(user_input_parsed[0], user_input_numbers)
 	return operation
 
-def run_operation(operation):
-	pass
+def run_operation(task):
+	if task.operation == "add":
+		# Set a variable for the final answer
+		answer = task.numbers[0]
+		numbers = task.numbers[1:]
+		# Loop through numbers list
+		for number in numbers:
+			answer += number
+		return answer
+		# Add it to the final answer
 
-def answer_user(answer):
-	pass
+	if task.operation == "subtract":
+		answer = task.numbers[0]
+		numbers = task.numbers[1:]
+		for number in numbers:
+			answer -= number
+		return answer
+
+	if task.operation == "multiply":
+		answer = task.numbers[0]
+		numbers = task.numbers[1:]
+		for number in numbers:
+				answer *= number
+
+	if task.operation == "divide":
+		answer = task.numbers[0]
+		numbers = task.numbers[1:]
+		for number in numbers:
+				answer /= number
+		return answer
+
+def answer_user(solution):
+	answer = "Your answer is: "
+	answer += solution
+	return answer
 
 def ask_again():
 	pass
@@ -51,6 +81,6 @@ def main():
 
 
 # main()
-user_input = get_user_input()
-operation = parse_input(user_input)
-print(operation.numbers)
+operation = Operation("add", [30, 50, 20])
+answer = run_operation(operation)
+print(answer)

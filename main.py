@@ -74,7 +74,13 @@ def answer_user(solution):
 	return answer
 
 def ask_again():
-	pass
+	again = input("Would you like to enter another commmand?: ")
+	# If yes, return true
+	if again == "yes":
+		return True
+	if again == "no":
+		return False
+	# If no, return false
 
 def main():
 	pass

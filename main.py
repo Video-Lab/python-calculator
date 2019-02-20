@@ -28,13 +28,14 @@ def parse_input(user_input):
 	# ["add", "30,50"]
 # Make list of numbers (that is easy to work with)
 	user_input_numbers = user_input_parsed[1].split(",")
+	user_input_numbers_int = []
 	# ["30", "50"]
 	for number in user_input_numbers:
-		number = int(number)
+		user_input_numbers_int.append(int(number))
 	# [30, 50]
 
 # Create instance of operation class & return it
-	operation = Operation(user_input_parsed[0], user_input_numbers)
+	operation = Operation(user_input_parsed[0], user_input_numbers_int)
 	return operation
 
 def run_operation(task):
@@ -71,30 +72,29 @@ def run_operation(task):
 
 def answer_user(solution):
 	answer = "\nYour answer is: "
-	answer += solution
+	answer += str(solution)
 	answer += "\n"
-	return answer
+	print(answer)
 
 def ask_again():
-	again = input("Would you like to enter another commmand?: ")
+	again = input("Would you like to enter another commmand?: ").lower()
 	# If yes, return true
-	if again == "yes":
+	if again[0] == "y":
 		return True
-	if again == "no":
-		return False
+	if again[0] == "n":
+		sys.exit()
 	# If no, return false
 
 def main():
-	again = True
 
-	while again == True:
+	while True:
 		introduction()
 		print_instructions()
 		user_input = get_user_input()
 		operation = parse_input(user_input)
 		answer = run_operation(operation)
 		answer_user(answer)
-		again = ask_again()
+		ask_again()
 
 
 main()

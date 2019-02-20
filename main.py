@@ -6,12 +6,12 @@ class Operation:
 		self.numbers = numbers;
 
 def introduction():
-	print("Python Calculator")
+	print("=== PYTHON CALCULATOR ===\n\n")
 
 def print_instructions():
 	instructions = "Type your command in this format: "
-	instructions += " add 1,2 "
-	instructions += "Possible operations: add, subtract, multiply, divide"
+	instructions += "add 1,2\n"
+	instructions += "Possible operations: add, subtract, multiply, divide\n"
 	print(instructions)
 
 def get_user_input():
@@ -69,8 +69,9 @@ def run_operation(task):
 		return answer
 
 def answer_user(solution):
-	answer = "Your answer is: "
+	answer = "\nYour answer is: "
 	answer += solution
+	answer += "\n"
 	return answer
 
 def ask_again():
@@ -87,6 +88,5 @@ def main():
 
 
 # main()
-operation = Operation("add", [30, 50, 20])
-answer = run_operation(operation)
-print(answer)
+introduction()
+print_instructions()

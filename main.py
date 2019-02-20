@@ -60,6 +60,7 @@ def run_operation(task):
 		numbers = task.numbers[1:]
 		for number in numbers:
 				answer *= number
+		return answer
 
 	if task.operation == "divide":
 		answer = task.numbers[0]
@@ -84,9 +85,16 @@ def ask_again():
 	# If no, return false
 
 def main():
-	pass
+	again = True
+
+	while again == True:
+		introduction()
+		print_instructions()
+		user_input = get_user_input()
+		operation = parse_input(user_input)
+		answer = run_operation(operation)
+		answer_user(answer)
+		again = ask_again()
 
 
-# main()
-introduction()
-print_instructions()
+main()
